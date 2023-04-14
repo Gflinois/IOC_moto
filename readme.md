@@ -22,8 +22,7 @@ To use this code, you will need:
 1. Clone this Git repository onto your Raspberry Pi
 2. Install the required Python packages by running `pip3 install -r requirements.txt`
 3. Connect the sensors to your Raspberry Pi according to the instructions provided
-4. Start the web server by running `python3 app.py`
-5. Navigate to `http://localhost:5000` in your web browser to view the motorcycle data dashboard
+4. Start the web server by running `streamlit run test_st.py`
 
 ## Usage
 
