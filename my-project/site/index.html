@@ -76,7 +76,7 @@
 docs/
     index.md  # The documentation homepage.
     ...       # Other markdown pages, images and other files.
-</code></pre> <div id="dynamic-content"></div> </div>
+</code> <div id="dynamic-content"></div> </pre></div>
             </div>
         </div>
 
@@ -89,6 +89,7 @@ docs/
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="js/base.js" defer></script>
+        <script src="script_query.js" defer></script>
         <script src="search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
@@ -151,22 +152,11 @@ docs/
         </div>
     </div>
 </div>
-	<script>
-// Fetch the data from the file using AJAX
-var xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function() {
-    if (this.readyState === 4 && this.status === 200) {
-        // Update the page content with the data from the file
-        document.getElementById("dynamic-content").innerHTML = this.responseText;
-    }
-};
-xhr.open("GET", "~/Soebonne/IOC/IOC_moto/my_project/site/file.txt", true);
-xhr.send();
-</script>
+
     </body>
 </html>
 
 <!--
 MkDocs version : 1.4.2
-Build Date UTC : 2023-04-21 13:05:53.371373+00:00
+Build Date UTC : 2023-05-01 09:21:38.304089+00:00
 -->
