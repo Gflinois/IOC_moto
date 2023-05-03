@@ -16,22 +16,28 @@ request.onload = function() {
     let data = JSON.parse(this.response);
     //lancement de la requete si la condition est validé
     if (request.status >= 200 && request.status < 400) {
-        data.forEach(value => {
+        data.forEach(response => {
             //Creation de la carte qui va avoir les infos
             let card = document.createElement('div');
             card.setAttribute('class', 'card');
             //recuperation du titre
-            let title = document.createElement('h2');
-            title.setAttribute("id",value.id+"-titre");
-            title.textContent = value.title;
-            //recuperation de la description
-            let description = document.createElement('p');
-            description.setAttribute("id",value.id+"-value")
-            description.textContent = value.description;
+            let title = document.createElement('h3');
+            title.setAttribute("id",response.id+"-title");
+            title.textContent = response.title;
+            //recuperation de la valeur
+            let value = document.createElement('span');
+            value.setAttribute("class", "value")
+            value.setAttribute("id",response.id+"-value");
+            value.textContent = response.value;
+            //recuperation de l'unité
+            let unit = document.createElement('span');
+            unit.setAttribute("id", response.id+'-unit');
+            unit.textContent = response.unit;
             //ajout dans l'html de la carte et des infos
             container.appendChild(card);
             card.appendChild(title);
-            card.appendChild(description);
+            card.appendChild(value);
+            card.appendChild(unit)
         })
     }
 };
@@ -43,11 +49,13 @@ function refreshData() {
     request.onreadystatechange = function() {
         let data = JSON.parse(this.response);
         if (request.status >= 200 && request.status < 400) {
-            data.forEach(value => {
-                let title = document.getElementById(value.id+"-titre")
-                title.textContent = value.title;
-                let description = document.getElementById(value.id+"-value")
-                description.textContent = value.description;
+            data.forEach(response => {
+                let title = document.getElementById(response.id+"-title");
+                title.textContent = response.title;
+                let value = document.getElementById(response.id+"-value");
+                value.textContent = response.value;
+                let unit = document.getElementById(response.id+"-unit");
+                unit.textContent = response.unit;
             })
         }
     };

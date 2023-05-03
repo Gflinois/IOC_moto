@@ -1,17 +1,20 @@
 [
-    {
-        "id": 1,
-        "title": "Titre 1",
-        "description": "Description 1"
-    },
-    {
-        "id": 2,
-        "title": "Titre 2",
-        "description": 199
-    },
-    {
-        "id": 3,
-        "title": "Titre 3",
-        "description": "Description 3"
-    }
+  {
+    "id": 1,
+    "title": "RPM",
+    "value": "15 000",
+    "unit": "Tr/min"
+  },
+  {
+    "id": 2,
+    "title": "Temperature",
+    "value": "90",
+    "unit": "° Celsius"
+  },
+  {
+    "id": 3,
+    "title": "Inclinaison",
+    "value": "0",
+    "unit": "°"
+  }
 ]
