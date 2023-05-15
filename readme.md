@@ -7,6 +7,8 @@ This Git project contains the code for a network of sensors connected to a Raspb
 - IMU for measuring acceleration and speed in all directions (interraction with website not ready yet because we have no non broken IMU yet)
 - Tachimeter spying for RPM monitoring
 
+The project also include an OLED output for ESP32, actually the esp32 used with the thermistance is receiving the lumistance value from the raspberry pi.
+
 ## Requirements
 
 To use this code, you will need:
