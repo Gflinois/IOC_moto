@@ -37,8 +37,11 @@ After installing everything and instaling the sensors on the motorcycle , whatch
 
 Contributions to this Git project are welcome! Please submit pull requests to the `dev` branch and include a detailed description of your changes.
 
+
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
 
+## Easter-egg for the ones that are working on a XJ400 (or that are having airbox issues)
 
+Since airboxes are no longer available on the market for xj400 and as you may know this model is verry tightly packed I designed a 3D printable servicable low profile airbox in BAA. If anyone wants to build it please do, stl cad and gcode for an ender 3 pro are available. If anyone is interested in a simple airbox but for another model please try to modify my design and upload it here, I will be available to help you finish the work if need be.
