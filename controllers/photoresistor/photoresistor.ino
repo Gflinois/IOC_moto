@@ -11,6 +11,21 @@
 char glbPrValue[32];
 BLECharacteristic *glbPrCharacteristic;
 
+bool deviceConnected = false;
+bool advertising = false;
+
+class ServerConnectCallback: public BLEServerCallbacks {
+  void onConnect(BLEServer* pServer) {
+    Serial.println("device connected");
+    deviceConnected = true;
+  };
+  void onDisconnect(BLEServer* pServer) {
+    Serial.println("device disconnected");
+    deviceConnected = false;
+    advertising = false;
+  }
+};
+
 void setup() {
   Serial.begin(9600);
 
@@ -19,6 +34,8 @@ void setup() {
   // Setup BLE peripheral (GATT server)
   BLEDevice::init("MSN Photoresistor");
   BLEServer *pServer = BLEDevice::createServer();
+  pServer->setCallbacks(new ServerConnectCallback());
+
   BLEService *pService = pServer->createService(PR_SERVICE_UUID);
   
   // Initialize main characteristic
@@ -37,7 +54,8 @@ void setup() {
   pAdvertising->setMinPreferred(0x06);
   pAdvertising->setMinPreferred(0x12);
   BLEDevice::startAdvertising();
-
+  advertising = true;
+  
   Serial.println("ble services started");
 
   // Setup the photoresistor
@@ -45,8 +63,15 @@ void setup() {
 }
 
 void loop() {
-  // Update photoresistor value (convert to string in order to debug)
-  double rawPrValue = 1.0 - (analogRead(PHOTORESISTOR_PIN) / 4095.0);
-  snprintf(glbPrValue, sizeof(glbPrValue), "%f", rawPrValue);
-  glbPrCharacteristic->setValue(glbPrValue);
+  if (deviceConnected) {
+    // Update photoresistor value (convert to string in order to debug)
+    double rawPrValue = 1.0 - (analogRead(PHOTORESISTOR_PIN) / 4095.0);
+    snprintf(glbPrValue, sizeof(glbPrValue), "%f", rawPrValue);
+    glbPrCharacteristic->setValue(glbPrValue);
+  }
+
+  if (!advertising) {
+    BLEDevice::startAdvertising();
+    advertising = true;
+  }
 }
