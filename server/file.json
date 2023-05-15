@@ -16,5 +16,11 @@
     "title": "Inclinaison",
     "value": "0",
     "unit": "°"
+  },
+  {
+    "id": 4,
+    "title": "Luminosite",
+    "value": "0",
+    "unit": "%"
   }
 ]
