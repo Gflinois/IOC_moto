@@ -62,4 +62,4 @@ function refreshData() {
     request.send();
 }
 //refresh de la fonction
-setInterval(refreshData, 50);
+setInterval(refreshData, 2000);

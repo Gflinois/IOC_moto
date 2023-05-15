@@ -1,3 +1,5 @@
 #!/bin/bash
-python3 server/ble-service.py & >/dev/null
-python3 -m streamlit run server/web.py
+cd ble-service
+python3 ble-service.py &
+python3 web.py
+
