@@ -33,7 +33,7 @@ To use this code, you will need:
 
 After installing everything and instaling the sensors on the motorcycle , whatch the magic by connecting to the local server oppened by the raspberry.
 
-## Contribution
+### Contribution
 
 Contributions to this Git project are welcome! Please submit pull requests to the `dev` branch and include a detailed description of your changes.
 
