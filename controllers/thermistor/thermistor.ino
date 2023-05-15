@@ -34,6 +34,7 @@ void setup() {
   // Setup BLE peripheral (GATT server)
   BLEDevice::init("MSN Thermistor");
   BLEServer *pServer = BLEDevice::createServer();
+  pServer->setCallbacks(new ServerConnectCallback());
   BLEService *pService = pServer->createService(TR_SERVICE_UUID);
   
   // Initialize main characteristic
